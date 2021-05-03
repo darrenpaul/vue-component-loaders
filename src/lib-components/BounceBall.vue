@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vcl-bounce--container"
+    class="vcl-bounce-ball--container"
     :style="{
       width: `${
         direction === 'horizontal' ? width * balls + 'px' : width + 'px'
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped>
-.vcl-bounce--container {
+.vcl-bounce-ball--container {
   display: flex;
 }
 

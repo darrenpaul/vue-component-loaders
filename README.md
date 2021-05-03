@@ -56,6 +56,19 @@ symmetry bool: false // When true all the balls will bounce at the same .time
 direction str: "horizontal" // This is the direction you would like to layout the balls options (horizontal, vertical).
 ```
 
+**SpinnerBall Props and Defaults**
+
+```js
+width int: 250
+height int: 250
+colour str: "#db6666"
+balls int: 8 // This is the number of balls you would like.
+ballSize int: 50 // The size of the actual balls
+spacing int: 1 // The spacing between each ball
+speed str: "4s" // The speed at which the balls will rotate
+rotationAmount int: 360 // How many rotations the balls will make before stopping
+```
+
 ## 📣 Acknowledgements
 
 This library is still WIP

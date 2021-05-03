@@ -10,8 +10,6 @@ export default defineComponent({
 
 <template>
   <div id="app">
-    <PulseBall />
-    <Bounce />
-    <Spinner />
+    <SpinnerBall />
   </div>
 </template>
