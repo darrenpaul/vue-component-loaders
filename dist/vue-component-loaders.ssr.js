@@ -55,79 +55,56 @@ function _arrayLikeToArray(arr, len) {
 
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}var script$2 = /*#__PURE__*/vue.defineComponent({
-  name: 'VueComponentLoadersSample',
-  // vue component name
-  data: function data() {
-    return {
-      counter: 5,
-      initCounter: 5,
-      message: {
-        action: null,
-        amount: null
-      }
-    };
-  },
-  computed: {
-    changedBy: function changedBy() {
-      var message = this.message;
-      if (!message.action) return 'initialized';
-      return "".concat(message.action, " ").concat(message.amount || '').trim();
-    }
-  },
-  methods: {
-    increment: function increment(arg) {
-      var amount = typeof arg !== 'number' ? 1 : arg;
-      this.counter += amount;
-      this.message.action = 'incremented by';
-      this.message.amount = amount;
+}var script$2 = {
+  props: {
+    width: {
+      type: Number,
+      default: 150
     },
-    decrement: function decrement(arg) {
-      var amount = typeof arg !== 'number' ? 1 : arg;
-      this.counter -= amount;
-      this.message.action = 'decremented by';
-      this.message.amount = amount;
+    height: {
+      type: Number,
+      default: 150
     },
-    reset: function reset() {
-      this.counter = this.initCounter;
-      this.message.action = 'reset';
-      this.message.amount = null;
+    colour: {
+      type: String,
+      default: "#db6666"
+    },
+    balls: {
+      type: Number,
+      default: 3
+    },
+    symmetry: {
+      type: Boolean,
+      default: false
+    },
+    direction: {
+      type: String,
+      default: "horizontal"
     }
   }
-});var _withId$2 = /*#__PURE__*/vue.withScopeId("data-v-3334ac06");
-
-vue.pushScopeId("data-v-3334ac06");
-
-var _hoisted_1$2 = {
-  class: "vue-component-loaders-sample"
-};
-
-var _hoisted_2$2 = /*#__PURE__*/vue.createTextVNode(".");
-
-vue.popScopeId();
+};var _withId$2 = /*#__PURE__*/vue.withScopeId("data-v-1c74d3ee");
 
 var render$2 = /*#__PURE__*/_withId$2(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("div", _hoisted_1$2, [vue.createVNode("p", null, [vue.createTextVNode("The counter was " + vue.toDisplayString(_ctx.changedBy) + " to ", 1), vue.createVNode("b", null, vue.toDisplayString(_ctx.counter), 1), _hoisted_2$2]), vue.createVNode("button", {
-    onClick: _cache[1] || (_cache[1] = function () {
-      return _ctx.increment && _ctx.increment.apply(_ctx, arguments);
-    })
-  }, " Click +1 "), vue.createVNode("button", {
-    onClick: _cache[2] || (_cache[2] = function () {
-      return _ctx.decrement && _ctx.decrement.apply(_ctx, arguments);
-    })
-  }, " Click -1 "), vue.createVNode("button", {
-    onClick: _cache[3] || (_cache[3] = function ($event) {
-      return _ctx.increment(5);
-    })
-  }, " Click +5 "), vue.createVNode("button", {
-    onClick: _cache[4] || (_cache[4] = function ($event) {
-      return _ctx.decrement(5);
-    })
-  }, " Click -5 "), vue.createVNode("button", {
-    onClick: _cache[5] || (_cache[5] = function () {
-      return _ctx.reset && _ctx.reset.apply(_ctx, arguments);
-    })
-  }, " Reset ")]);
+  return vue.openBlock(), vue.createBlock("div", {
+    class: "vcl-bounce-ball--container",
+    style: {
+      width: "".concat($props.direction === 'horizontal' ? $props.width * $props.balls + 'px' : $props.width + 'px'),
+      height: "".concat($props.direction === 'vertical' ? $props.height * $props.balls + 'px' : $props.height + 'px'),
+      flexDirection: "".concat($props.direction === 'horizontal' ? 'row' : 'column')
+    }
+  }, [(vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList($props.balls, function (index) {
+    return vue.openBlock(), vue.createBlock("div", {
+      key: index,
+      class: "vcl-bounce--shape",
+      style: {
+        width: "".concat($props.width, "px"),
+        height: "".concat($props.height, "px"),
+        background: $props.colour,
+        '--colourVar': $props.colour,
+        '--delay': "".concat($props.symmetry === false ? index / 10 : index, "s")
+      }
+    }, null, 4);
+  }), 128))], 4);
 });function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -153,167 +130,119 @@ var render$2 = /*#__PURE__*/_withId$2(function (_ctx, _cache, $props, $setup, $d
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z$2 = "\n.vue-component-loaders-sample[data-v-3334ac06] {\n    display: block;\n    width: 400px;\n    margin: 25px auto;\n    border: 1px solid #ccc;\n    background: #eaeaea;\n    text-align: center;\n    padding: 25px;\n}\n.vue-component-loaders-sample p[data-v-3334ac06] {\n    margin: 0 0 1em;\n}\n";
+}var css_248z$2 = "\n.vcl-bounce-ball--container[data-v-1c74d3ee] {\n  display: flex;\n}\n.vcl-bounce--shape[data-v-1c74d3ee] {\n  border-radius: 50%;\n  animation-iteration-count: infinite;\n}\n.vcl-bounce--shape[data-v-1c74d3ee]:nth-child(1n) {\n  animation: bounceAnimation-1c74d3ee 1s linear;\n  animation-delay: var(--delay);\n  animation-iteration-count: infinite;\n}\n@keyframes bounceAnimation-1c74d3ee {\n0% {\n    transform: scale(1, 1) translateY(0);\n}\n10% {\n    transform: scale(1.1, 0.9) translateY(0);\n}\n30% {\n    transform: scale(0.9, 1.1) translateY(-100px);\n}\n50% {\n    transform: scale(1.05, 0.95) translateY(0);\n}\n57% {\n    transform: scale(1, 1) translateY(-7px);\n}\n64% {\n    transform: scale(1, 1) translateY(0);\n}\n100% {\n    transform: scale(1, 1) translateY(0);\n}\n}\n";
 styleInject(css_248z$2);script$2.render = render$2;
-script$2.__scopeId = "data-v-3334ac06";var script$1 = {};var _withId$1 = /*#__PURE__*/vue.withScopeId("data-v-c8cdcbe0");
-
-vue.pushScopeId("data-v-c8cdcbe0");
-
-var _hoisted_1$1 = {
-  class: "spinner--container"
-};
-
-var _hoisted_2$1 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_3$1 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_4$1 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_5$1 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-vue.popScopeId();
+script$2.__scopeId = "data-v-1c74d3ee";var script$1 = {
+  props: {
+    width: {
+      type: Number,
+      default: 250
+    },
+    height: {
+      type: Number,
+      default: 250
+    },
+    colour: {
+      type: String,
+      default: "#db6666"
+    },
+    balls: {
+      type: Number,
+      default: 8
+    },
+    ballSize: {
+      type: Number,
+      default: 50
+    },
+    spacing: {
+      type: Number,
+      default: 1
+    },
+    speed: {
+      type: String,
+      default: "4s"
+    },
+    rotationAmount: {
+      type: Number,
+      default: 720
+    }
+  }
+};var _withId$1 = /*#__PURE__*/vue.withScopeId("data-v-53e33f72");
 
 var render$1 = /*#__PURE__*/_withId$1(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("div", _hoisted_1$1, [_hoisted_2$1, _hoisted_3$1, _hoisted_4$1, _hoisted_5$1]);
-});var css_248z$1 = "\n.spinner--container[data-v-c8cdcbe0] {\n  display: grid;\n  align-items: flex-end;\n  grid-template-columns: auto auto auto auto auto;\n  width: 600px;\n  height: 300px;\n  animation-duration: 4s;\n  animation-iteration-count: infinite;\n}\n.scale--animation[data-v-c8cdcbe0] {\n  animation: bounce-c8cdcbe0 1s linear;\n  animation-iteration-count: infinite;\n}\n.scale--animation[data-v-c8cdcbe0]:nth-child(1) {\n  animation-delay: 0s;\n}\n.scale--animation[data-v-c8cdcbe0]:nth-child(2) {\n  animation-delay: 0.25s;\n}\n.scale--animation[data-v-c8cdcbe0]:nth-child(3) {\n  animation-delay: 0.5s;\n}\n.scale--animation[data-v-c8cdcbe0]:nth-child(4) {\n  animation-delay: 0.75s;\n}\n.scale--animation[data-v-c8cdcbe0]:nth-child(5) {\n  animation-delay: 1s;\n}\n@keyframes bounce-c8cdcbe0 {\n0% {\n    transform: scale(1, 1) translateY(0);\n}\n10% {\n    transform: scale(1.1, 0.9) translateY(0);\n}\n30% {\n    transform: scale(0.9, 1.1) translateY(-100px);\n}\n50% {\n    transform: scale(1.05, 0.95) translateY(0);\n}\n57% {\n    transform: scale(1, 1) translateY(-7px);\n}\n64% {\n    transform: scale(1, 1) translateY(0);\n}\n100% {\n    transform: scale(1, 1) translateY(0);\n}\n}\n@keyframes wait-c8cdcbe0 {\n0% {\n    transform: translateY(0px);\n}\n50% {\n    transform: translateY(0px);\n}\n100% {\n    transform: translateY(0px);\n}\n}\n";
+  return vue.openBlock(), vue.createBlock("div", {
+    class: "vcl-spinner-ball--container",
+    style: {
+      width: "".concat($props.width, "px"),
+      height: "".concat($props.height, "px"),
+      margin: "".concat($props.ballSize / 2, "px")
+    }
+  }, [(vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList($props.balls, function (index) {
+    return vue.openBlock(), vue.createBlock("div", {
+      key: index,
+      class: "vcl-circle--shape",
+      style: {
+        background: $props.colour,
+        width: "".concat($props.ballSize, "px"),
+        height: "".concat($props.ballSize, "px"),
+        margin: "".concat(-$props.ballSize / 2, "px"),
+        '--degree': "".concat(index * 45, "deg"),
+        '--tranlateSpacing': "-".concat($props.width / 2, "px"),
+        '--colourVar': $props.colour,
+        '--speed': $props.speed,
+        '--rotationAmount': "".concat($props.rotationAmount, "deg"),
+        transform: "rotate(".concat(-index * $props.spacing * 45, "deg) translateY(-").concat($props.width / 2, "px)")
+      }
+    }, null, 4);
+  }), 128))], 4);
+});var css_248z$1 = "\n.vcl-spinner-ball--container[data-v-53e33f72] {\n  position: relative;\n}\n.vcl-spinner-ball--container[data-v-53e33f72]:before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.vcl-circle--shape[data-v-53e33f72] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin: 0;\n  border-radius: 50%;\n  animation: rotateAnimation-53e33f72 var(--speed) infinite reverse;\n}\n@keyframes rotateAnimation-53e33f72 {\n50% {\n    transform: rotate(var(--rotationAmount)) translateY(var(--tranlateSpacing));\n}\n}\n";
 styleInject(css_248z$1);script$1.render = render$1;
-script$1.__scopeId = "data-v-c8cdcbe0";var script = {};var _withId = /*#__PURE__*/vue.withScopeId("data-v-bb0af90a");
-
-vue.pushScopeId("data-v-bb0af90a");
-
-var _hoisted_1 = {
-  class: "spinner--container"
-};
-
-var _hoisted_2 = /*#__PURE__*/vue.createVNode("div", null, null, -1);
-
-var _hoisted_3 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_4 = /*#__PURE__*/vue.createVNode("div", null, null, -1);
-
-var _hoisted_5 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_6 = /*#__PURE__*/vue.createVNode("div", null, null, -1);
-
-var _hoisted_7 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_8 = /*#__PURE__*/vue.createVNode("div", null, null, -1);
-
-var _hoisted_9 = /*#__PURE__*/vue.createVNode("svg", {
-  class: "scale--animation",
-  xmlns: "http://www.w3.org/2000/svg",
-  width: "150",
-  height: "150",
-  viewBox: "0 0 150 150"
-}, [/*#__PURE__*/vue.createVNode("circle", {
-  id: "Ellipse_1",
-  "data-name": "Ellipse 1",
-  cx: "75",
-  cy: "75",
-  r: "75",
-  fill: "#db6666"
-})], -1);
-
-var _hoisted_10 = /*#__PURE__*/vue.createVNode("div", null, null, -1);
-
-vue.popScopeId();
+script$1.__scopeId = "data-v-53e33f72";var script = {
+  props: {
+    width: {
+      type: Number,
+      default: 150
+    },
+    height: {
+      type: Number,
+      default: 150
+    },
+    shapeRadius: {
+      type: Number,
+      default: 50
+    },
+    pulseRadius: {
+      type: Number,
+      default: 50
+    },
+    colour: {
+      type: String,
+      default: "#db6666"
+    }
+  }
+};var _withId = /*#__PURE__*/vue.withScopeId("data-v-3d26d383");
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("div", _hoisted_1, [_hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10]);
-});var css_248z = "\n.spinner--container[data-v-bb0af90a] {\n  display: grid;\n  grid-template-columns: auto auto auto;\n  grid-template-rows: auto auto auto;\n  width: 450px;\n  height: 450px;\n  animation-name: example-bb0af90a;\n  animation-duration: 4s;\n  animation-iteration-count: infinite;\n}\n.scale--animation[data-v-bb0af90a] {\n  animation-name: scale-bb0af90a;\n  animation-duration: 4s;\n  animation-iteration-count: infinite;\n}\n.scale--animation[data-v-bb0af90a]:nth-child(2) {\n  animation-delay: 0s;\n}\n.scale--animation[data-v-bb0af90a]:nth-child(4) {\n  animation-delay: 0.5s;\n}\n.scale--animation[data-v-bb0af90a]:nth-child(6) {\n  animation-delay: 1s;\n}\n.scale--animation[data-v-bb0af90a]:nth-child(8) {\n  animation-delay: 1.5s;\n}\n@keyframes example-bb0af90a {\n0% {\n    transform: rotate(0deg);\n}\n25% {\n}\n50% {\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes scale-bb0af90a {\n0% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(0.5);\n}\n100% {\n    transform: scale(1);\n}\n}\n";
+  return vue.openBlock(), vue.createBlock("div", {
+    class: "vcl-pulse-ball--container",
+    style: {
+      width: "".concat($props.width, "px"),
+      height: "".concat($props.height, "px")
+    }
+  }, [vue.createVNode("div", {
+    class: "vcl-circle--shape",
+    style: {
+      width: "".concat($props.width, "px"),
+      height: "".concat($props.height, "px"),
+      background: $props.colour,
+      '--colourVar': $props.colour,
+      '--shapeRadius': "".concat($props.shapeRadius, "%"),
+      '--pulseRadius': "".concat($props.pulseRadius, "%")
+    }
+  }, null, 4)], 4);
+});var css_248z = "\n.vcl-pulse-ball--container[data-v-3d26d383] {\n  display: block;\n  position: relative;\n}\n.vcl-circle--shape[data-v-3d26d383] {\n  border-radius: var(--shapeRadius);\n  z-index: 10;\n}\n.vcl-circle--shape[data-v-3d26d383]::after {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--pulseRadius);\n  background: var(--colourVar);\n  animation: pulseAnimation-3d26d383 2s infinite;\n  z-index: -2;\n}\n@keyframes pulseAnimation-3d26d383 {\n0% {\n    transform: scale(0.9);\n    opacity: 1;\n}\n100% {\n    transform: scale(1.4);\n    opacity: 0;\n}\n}\n";
 styleInject(css_248z);script.render = render;
-script.__scopeId = "data-v-bb0af90a";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,VueComponentLoadersSample: script$2,Bounce: script$1,Spinner: script});var install = function installVueComponentLoaders(app) {
+script.__scopeId = "data-v-3d26d383";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,Bouncel: script$2,CollapseCircle: script$1,Pulse: script});var install = function installVueComponentLoaders(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
         componentName = _ref2[0],
@@ -322,7 +251,7 @@ script.__scopeId = "data-v-bb0af90a";/* eslint-disable import/prefer-default-exp
     app.component(componentName, component);
   });
 }; // Create module definition for Vue.use()
-var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': install,VueComponentLoadersSample: script$2,Bounce: script$1,Spinner: script});// only expose one global var, with component exports exposed as properties of
+var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': install,Bouncel: script$2,CollapseCircle: script$1,Pulse: script});// only expose one global var, with component exports exposed as properties of
 // that global var (eg. plugin.component)
 
 Object.entries(components).forEach(function (_ref) {

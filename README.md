@@ -37,15 +37,17 @@ export default {
 
 ## 📋 Available Loaders
 
-**PulseBall Props and Defaults**
+**Pulse Props and Defaults**
 
 ```js
 width int: 150
 height int: 150
+shapeRadius int: 50
+pulseRadius: int: 50
 colour str: "#db6666"
 ```
 
-**BounceBall Props and Defaults**
+**Bounce Props and Defaults**
 
 ```js
 width int: 150
@@ -56,7 +58,7 @@ symmetry bool: false // When true all the balls will bounce at the same .time
 direction str: "horizontal" // This is the direction you would like to layout the balls options (horizontal, vertical).
 ```
 
-**SpinnerBall Props and Defaults**
+**CollapseCircle Props and Defaults**
 
 ```js
 width int: 250
@@ -69,7 +71,7 @@ speed str: "4s" // The speed at which the balls will rotate
 rotationAmount int: 360 // How many rotations the balls will make before stopping
 ```
 
-## 📣 Acknowledgements
+## 📣 Announcements
 
 This library is still WIP
 

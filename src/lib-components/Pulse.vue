@@ -13,6 +13,8 @@
         height: `${height}px`,
         background: colour,
         '--colourVar': colour,
+        '--shapeRadius': `${shapeRadius}%`,
+        '--pulseRadius': `${pulseRadius}%`,
       }"
     ></div>
   </div>
@@ -23,6 +25,8 @@ export default {
   props: {
     width: { type: Number, default: 150 },
     height: { type: Number, default: 150 },
+    shapeRadius: { type: Number, default: 50 },
+    pulseRadius: { type: Number, default: 50 },
     colour: { type: String, default: "#db6666" },
   },
 };
@@ -35,7 +39,7 @@ export default {
 }
 
 .vcl-circle--shape {
-  border-radius: 50%;
+  border-radius: var(--shapeRadius);
   z-index: 10;
 }
 
@@ -44,7 +48,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: var(--pulseRadius);
   background: var(--colourVar);
   animation: pulseAnimation 2s infinite;
   z-index: -2;
