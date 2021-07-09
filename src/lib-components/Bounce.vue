@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vcl-bounce-ball--container"
+    class="vcl-bounce-shape--container"
     :style="{
       width: `${
         direction === 'horizontal' ? width * balls + 'px' : width + 'px'
@@ -19,6 +19,7 @@
         width: `${width}px`,
         height: `${height}px`,
         background: colour,
+        'borderRadius': `${borderRadius}%`,
         '--colourVar': colour,
         '--delay': `${symmetry === false ? index / 10 : index}s`,
       }"
@@ -29,6 +30,7 @@
 <script>
 export default {
   props: {
+    borderRadius: { type: Number, default: 50 },
     width: { type: Number, default: 150 },
     height: { type: Number, default: 150 },
     colour: { type: String, default: "#db6666" },
@@ -40,12 +42,12 @@ export default {
 </script>
 
 <style scoped>
-.vcl-bounce-ball--container {
+.vcl-bounce-shape--container {
   display: flex;
 }
 
 .vcl-bounce--shape {
-  border-radius: 50%;
+  border-radius: var(--borderRadius);
   animation-iteration-count: infinite;
 }
 

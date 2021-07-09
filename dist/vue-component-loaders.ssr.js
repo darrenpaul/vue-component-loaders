@@ -57,6 +57,10 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }var script$2 = {
   props: {
+    borderRadius: {
+      type: Number,
+      default: 50
+    },
     width: {
       type: Number,
       default: 150
@@ -82,11 +86,11 @@ function _nonIterableRest() {
       default: "horizontal"
     }
   }
-};var _withId$2 = /*#__PURE__*/vue.withScopeId("data-v-1c74d3ee");
+};var _withId$2 = /*#__PURE__*/vue.withScopeId("data-v-a64b5ea6");
 
 var render$2 = /*#__PURE__*/_withId$2(function (_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createBlock("div", {
-    class: "vcl-bounce-ball--container",
+    class: "vcl-bounce-shape--container",
     style: {
       width: "".concat($props.direction === 'horizontal' ? $props.width * $props.balls + 'px' : $props.width + 'px'),
       height: "".concat($props.direction === 'vertical' ? $props.height * $props.balls + 'px' : $props.height + 'px'),
@@ -100,6 +104,7 @@ var render$2 = /*#__PURE__*/_withId$2(function (_ctx, _cache, $props, $setup, $d
         width: "".concat($props.width, "px"),
         height: "".concat($props.height, "px"),
         background: $props.colour,
+        'borderRadius': "".concat($props.borderRadius, "%"),
         '--colourVar': $props.colour,
         '--delay': "".concat($props.symmetry === false ? index / 10 : index, "s")
       }
@@ -130,9 +135,9 @@ var render$2 = /*#__PURE__*/_withId$2(function (_ctx, _cache, $props, $setup, $d
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z$2 = "\n.vcl-bounce-ball--container[data-v-1c74d3ee] {\n  display: flex;\n}\n.vcl-bounce--shape[data-v-1c74d3ee] {\n  border-radius: 50%;\n  animation-iteration-count: infinite;\n}\n.vcl-bounce--shape[data-v-1c74d3ee]:nth-child(1n) {\n  animation: bounceAnimation-1c74d3ee 1s linear;\n  animation-delay: var(--delay);\n  animation-iteration-count: infinite;\n}\n@keyframes bounceAnimation-1c74d3ee {\n0% {\n    transform: scale(1, 1) translateY(0);\n}\n10% {\n    transform: scale(1.1, 0.9) translateY(0);\n}\n30% {\n    transform: scale(0.9, 1.1) translateY(-100px);\n}\n50% {\n    transform: scale(1.05, 0.95) translateY(0);\n}\n57% {\n    transform: scale(1, 1) translateY(-7px);\n}\n64% {\n    transform: scale(1, 1) translateY(0);\n}\n100% {\n    transform: scale(1, 1) translateY(0);\n}\n}\n";
+}var css_248z$2 = "\n.vcl-bounce-shape--container[data-v-a64b5ea6] {\n  display: flex;\n}\n.vcl-bounce--shape[data-v-a64b5ea6] {\n  border-radius: var(--borderRadius);\n  animation-iteration-count: infinite;\n}\n.vcl-bounce--shape[data-v-a64b5ea6]:nth-child(1n) {\n  animation: bounceAnimation-a64b5ea6 1s linear;\n  animation-delay: var(--delay);\n  animation-iteration-count: infinite;\n}\n@keyframes bounceAnimation-a64b5ea6 {\n0% {\n    transform: scale(1, 1) translateY(0);\n}\n10% {\n    transform: scale(1.1, 0.9) translateY(0);\n}\n30% {\n    transform: scale(0.9, 1.1) translateY(-100px);\n}\n50% {\n    transform: scale(1.05, 0.95) translateY(0);\n}\n57% {\n    transform: scale(1, 1) translateY(-7px);\n}\n64% {\n    transform: scale(1, 1) translateY(0);\n}\n100% {\n    transform: scale(1, 1) translateY(0);\n}\n}\n";
 styleInject(css_248z$2);script$2.render = render$2;
-script$2.__scopeId = "data-v-1c74d3ee";var script$1 = {
+script$2.__scopeId = "data-v-a64b5ea6";var script$1 = {
   props: {
     width: {
       type: Number,
@@ -199,6 +204,10 @@ var render$1 = /*#__PURE__*/_withId$1(function (_ctx, _cache, $props, $setup, $d
 styleInject(css_248z$1);script$1.render = render$1;
 script$1.__scopeId = "data-v-53e33f72";var script = {
   props: {
+    borderRadius: {
+      type: Number,
+      default: 50
+    },
     width: {
       type: Number,
       default: 150
@@ -206,10 +215,6 @@ script$1.__scopeId = "data-v-53e33f72";var script = {
     height: {
       type: Number,
       default: 150
-    },
-    shapeRadius: {
-      type: Number,
-      default: 50
     },
     pulseRadius: {
       type: Number,
@@ -220,29 +225,29 @@ script$1.__scopeId = "data-v-53e33f72";var script = {
       default: "#db6666"
     }
   }
-};var _withId = /*#__PURE__*/vue.withScopeId("data-v-3d26d383");
+};var _withId = /*#__PURE__*/vue.withScopeId("data-v-086591f6");
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
   return vue.openBlock(), vue.createBlock("div", {
-    class: "vcl-pulse-ball--container",
+    class: "vcl-pulse--container",
     style: {
       width: "".concat($props.width, "px"),
       height: "".concat($props.height, "px")
     }
   }, [vue.createVNode("div", {
-    class: "vcl-circle--shape",
+    class: "vcl-pulse--shape",
     style: {
       width: "".concat($props.width, "px"),
       height: "".concat($props.height, "px"),
       background: $props.colour,
       '--colourVar': $props.colour,
-      '--shapeRadius': "".concat($props.shapeRadius, "%"),
+      '--borderRadius': "".concat($props.borderRadius, "%"),
       '--pulseRadius': "".concat($props.pulseRadius, "%")
     }
   }, null, 4)], 4);
-});var css_248z = "\n.vcl-pulse-ball--container[data-v-3d26d383] {\n  display: block;\n  position: relative;\n}\n.vcl-circle--shape[data-v-3d26d383] {\n  border-radius: var(--shapeRadius);\n  z-index: 10;\n}\n.vcl-circle--shape[data-v-3d26d383]::after {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--pulseRadius);\n  background: var(--colourVar);\n  animation: pulseAnimation-3d26d383 2s infinite;\n  z-index: -2;\n}\n@keyframes pulseAnimation-3d26d383 {\n0% {\n    transform: scale(0.9);\n    opacity: 1;\n}\n100% {\n    transform: scale(1.4);\n    opacity: 0;\n}\n}\n";
+});var css_248z = "\n.vcl-pulse--container[data-v-086591f6] {\n  display: block;\n  position: relative;\n}\n.vcl-pulse--shape[data-v-086591f6] {\n  border-radius: var(--borderRadius);\n  z-index: 10;\n}\n.vcl-pulse--shape[data-v-086591f6]::after {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: var(--pulseRadius);\n  background: var(--colourVar);\n  animation: pulseAnimation-086591f6 2s infinite;\n  z-index: -2;\n}\n@keyframes pulseAnimation-086591f6 {\n0% {\n    transform: scale(0.9);\n    opacity: 1;\n}\n100% {\n    transform: scale(1.4);\n    opacity: 0;\n}\n}\n";
 styleInject(css_248z);script.render = render;
-script.__scopeId = "data-v-3d26d383";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,Bouncel: script$2,CollapseCircle: script$1,Pulse: script});var install = function installVueComponentLoaders(app) {
+script.__scopeId = "data-v-086591f6";/* eslint-disable import/prefer-default-export */var components$1=/*#__PURE__*/Object.freeze({__proto__:null,Bounce: script$2,CollapseCircle: script$1,Pulse: script});var install = function installVueComponentLoaders(app) {
   Object.entries(components$1).forEach(function (_ref) {
     var _ref2 = _slicedToArray(_ref, 2),
         componentName = _ref2[0],
@@ -251,7 +256,7 @@ script.__scopeId = "data-v-3d26d383";/* eslint-disable import/prefer-default-exp
     app.component(componentName, component);
   });
 }; // Create module definition for Vue.use()
-var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': install,Bouncel: script$2,CollapseCircle: script$1,Pulse: script});// only expose one global var, with component exports exposed as properties of
+var components=/*#__PURE__*/Object.freeze({__proto__:null,'default': install,Bounce: script$2,CollapseCircle: script$1,Pulse: script});// only expose one global var, with component exports exposed as properties of
 // that global var (eg. plugin.component)
 
 Object.entries(components).forEach(function (_ref) {

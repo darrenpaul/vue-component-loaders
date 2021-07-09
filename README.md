@@ -40,9 +40,9 @@ export default {
 **Pulse Props and Defaults**
 
 ```js
+borderRadius int: 50
 width int: 150
 height int: 150
-shapeRadius int: 50
 pulseRadius: int: 50
 colour str: "#db6666"
 ```
@@ -50,6 +50,7 @@ colour str: "#db6666"
 **Bounce Props and Defaults**
 
 ```js
+borderRadius int: 50 // This will make the shape a circle or box depending on the radius, default is a perfect circle.
 width int: 150
 height int: 150
 colour str: "#db6666"
@@ -74,6 +75,8 @@ rotationAmount int: 360 // How many rotations the balls will make before stoppin
 ## 📣 Announcements
 
 This library is still WIP
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/LT9ucOvZX)
 
 ## 🥂 License
 

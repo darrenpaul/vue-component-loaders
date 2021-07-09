@@ -1,13 +1,13 @@
 {
   "name": "vue-component-loaders",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/darrenpaul/vue-component-loaders#readme",
   "bugs": "https://github.com/darrenpaul/vue-component-loaders/issues",
   "person": {
     "name": "Darren Paul",
     "url": "https://www.darrenpaul.net/"
   },
-  "description": "SVG loading animation built for Vue.js 3",
+  "description": "Simple loading animation built for Vue.js 3",
   "license": "MIT",
   "main": "dist/vue-component-loaders.ssr.js",
   "browser": "dist/vue-component-loaders.esm.js",

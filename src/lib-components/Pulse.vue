@@ -1,19 +1,19 @@
 <template>
   <div
-    class="vcl-pulse-ball--container"
+    class="vcl-pulse--container"
     :style="{
       width: `${width}px`,
       height: `${height}px`,
     }"
   >
     <div
-      class="vcl-circle--shape"
+      class="vcl-pulse--shape"
       :style="{
         width: `${width}px`,
         height: `${height}px`,
         background: colour,
         '--colourVar': colour,
-        '--shapeRadius': `${shapeRadius}%`,
+        '--borderRadius': `${borderRadius}%`,
         '--pulseRadius': `${pulseRadius}%`,
       }"
     ></div>
@@ -23,9 +23,9 @@
 <script>
 export default {
   props: {
+    borderRadius: { type: Number, default: 50 },
     width: { type: Number, default: 150 },
     height: { type: Number, default: 150 },
-    shapeRadius: { type: Number, default: 50 },
     pulseRadius: { type: Number, default: 50 },
     colour: { type: String, default: "#db6666" },
   },
@@ -33,17 +33,17 @@ export default {
 </script>
 
 <style scoped>
-.vcl-pulse-ball--container {
+.vcl-pulse--container {
   display: block;
   position: relative;
 }
 
-.vcl-circle--shape {
-  border-radius: var(--shapeRadius);
+.vcl-pulse--shape {
+  border-radius: var(--borderRadius);
   z-index: 10;
 }
 
-.vcl-circle--shape::after {
+.vcl-pulse--shape::after {
   content: "";
   position: absolute;
   width: 100%;
